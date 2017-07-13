@@ -3,7 +3,7 @@ cache: packages
 sudo: true
 os: 
 - linux
-- windows
+
 
 r:
 - release
