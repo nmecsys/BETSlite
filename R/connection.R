@@ -1,6 +1,8 @@
 #' @title Connection with the server
 #' @description  Make the connection with the server
-#' @import DBI RMySQL odbc RODBC  
+#' @import DBI RMySQL RODBC  
+#' @importFrom utils  install.packages
+#' 
 
 connection = function(){
     tryCatch({
@@ -33,7 +35,7 @@ connection = function(){
             },
             error = function(e){
                 message("Desculpe mas nao foi possivel conectar ao servidor")
-               x <- base::readline("You want to install a development version of RMySQL and DBI package packages? \n
+               x <- readline("You want to install a development version of RMySQL and DBI package packages? \n
                                (This may solve the connection problem)[Y/n]")
                if(x %in% c("y","Y","N","n","yes","Yes","YES","No","NO","no")){
                    if(requireNamespace("devtools")){
@@ -51,4 +53,3 @@ connection = function(){
 }
 
 
-conn = connection()
