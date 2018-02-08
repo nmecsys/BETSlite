@@ -14,3 +14,8 @@ r_packages:
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
+  
+before_install:
+  - pip install --user codecov
+after_success:
+  - codecov --file coverage/lcov.info --disable search
