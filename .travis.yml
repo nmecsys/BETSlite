@@ -2,9 +2,15 @@ language: R
 cache: packages
 sudo: true
 os: 
-- linux
+  - linux
 
 
 r:
-- release
-- devel
+  - release
+  - devel
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'library(covr); codecov()'
