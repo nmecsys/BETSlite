@@ -6,7 +6,7 @@
 
 connection = function(){
     tryCatch({
-        conn = dbConnect(MySQL(),db="bets",user="BETS_user",password="123456",host="200.20.164.178",port=3306)
+        conn = dbConnect(MySQL(),db="bets",user="BETS_user",password="123456",host="200.18.49.107",port=3306)
         return(conn)
     },
     error = function(e){
