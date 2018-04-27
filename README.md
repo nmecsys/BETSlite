@@ -8,5 +8,5 @@
 
 ```R
 install.packages("devtools")
-devtools::install_version("GreedBlink/BETSlite)
+devtools::install_version("nmecsys/BETSlite)
 ```
