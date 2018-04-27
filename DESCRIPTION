@@ -1,12 +1,10 @@
 Package: BETSlite
 Type: Package
-Title: Brazilian Economic Time Series Lite
-Version: 0.0.1
-Date: 2017-07-12
-Authors@R: c(person("Pedro", "Costa Ferreira", email = "pedro.guilherme@fgv.br", role = c("aut", "cre")),
-              person("Talitha", "Speranza", email = "talitha.speranza@fgv.br", role = "aut"),
-			        person("Jonatha", "Azevedo", email = "jonatha.azevedo@fgv.br", role = "aut"))
-Maintainer: Pedro Costa Ferreira <pedro.guilherme@fgv.br>
+Title: Brazilian Economic Time Series Lite (lite version)
+Version: 0.1.3
+Date: 2018-04-27
+Authors@R: c(person("Jonatha", "Costa", email = "jonatha.azevedo@fgv.br", role = c("aut", "cre")))
+Maintainer: Jonatha Costa <jonatha.costa@fgv.br>
 Depends:
     R (>= 3.4.0)
 Imports:
