@@ -11,5 +11,5 @@
 
 ```R
 install.packages("devtools")
-devtools::install_github("nmecsys/BETSlite)
+devtools::install_github('nmecsys/BETSlite')
 ```
