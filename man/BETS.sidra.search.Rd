@@ -4,7 +4,8 @@
 \alias{BETS.sidra.search}
 \title{Search for Sidra Series}
 \usage{
-BETS.sidra.search(description = NULL, code, view = TRUE, browse = FALSE)
+BETS.sidra.search(description = NULL, code, view = TRUE,
+  browse = FALSE)
 }
 \arguments{
 \item{description}{A \code{character} argument. Function searches the Sidra metadata and prints results in a window.}

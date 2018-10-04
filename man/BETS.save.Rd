@@ -4,7 +4,8 @@
 \alias{BETS.save}
 \title{Prepare a time series to be exported}
 \usage{
-BETS.save(code = NULL, data = NULL, file.name = "series", type = "")
+BETS.save(code = NULL, data = NULL, file.name = "series",
+  type = "")
 }
 \arguments{
 \item{code}{An \code{integer}. The unique identifier of the series within the BETS database.}
