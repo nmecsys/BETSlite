@@ -1,7 +1,7 @@
 #' @title Connection with the server
 #' @description  Make the connection with the server
 #' @import DBI RMySQL digest
-#' @importFrom utils  install.packages remove.packages
+#' @importFrom utils  install.packages remove.packages read.csv
 
 connection = function(){
     

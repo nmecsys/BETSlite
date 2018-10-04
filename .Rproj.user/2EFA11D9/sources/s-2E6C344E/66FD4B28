@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538664132670.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "66FD4B28",
+    "lastKnownWriteTime" : 1538664151,
+    "last_content_update" : 1538664151298,
+    "path" : "~/github_original/BETSlite/R/connection.R",
+    "project_path" : "R/connection.R",
+    "properties" : {
+        "cursorPosition" : "21,16",
+        "scrollLine" : "4"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
