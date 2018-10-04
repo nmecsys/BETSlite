@@ -3,7 +3,7 @@
 
 # BETSlite - Brazilian Economic Times Series 
 
-*(only the data management)*
+*(Only the Data Management)*
 
 # Installation
 
