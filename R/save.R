@@ -1,6 +1,6 @@
 #' @title Prepare a time series to be exported
 #' 
-#' @description To be used with BETS.save.spss, BETS.save.sas and others.
+#' @description To be used with saveSpss, saveSas and others.
 #' 
 #' @param code An \code{integer}. The unique identifier of the series within the BETS database. 
 #' @param data A \code{data.frame} or a \code{ts}. Contains the data to be written. If \code{data} is supplied, the BETS database will not be searched. 
@@ -12,7 +12,7 @@
 #' @importFrom zoo as.Date
 
 
-BETS.save = function(code = NULL, data = NULL, file.name="series", type = ""){
+save = function(code = NULL, data = NULL, file.name="series", type = ""){
   
   path = FALSE
   
@@ -27,7 +27,7 @@ BETS.save = function(code = NULL, data = NULL, file.name="series", type = ""){
   }
   
   if(is.null(data) && !is.null(code)){
-    y = BETS.get(code, data.frame = TRUE)
+    y = BETSget(code, data.frame = TRUE)
     
     if(file.name == "series"){
       file.name = paste0(file.name, "_", code)

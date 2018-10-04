@@ -8,27 +8,25 @@ sidra.aux(x, len, nova_req, from, to, inputs, territory, variable, header,
   sections)
 }
 \arguments{
-\item{x}{Sidra series number.}
+\item{x}{Either a character or a numeric. If character, function searches the Sidra metadata. If a numeric argument is provided the descriptions of the given table are seached .}
 
-\item{len}{inputs size.}
+\item{len}{A \code{}.}
 
-\item{nova_req}{Requisition size.}
+\item{nova_req}{A \code{}.}
 
-\item{from}{A string or character vector specifying where the series shall start}
+\item{from}{A \code{}.}
 
-\item{to}{A string or character vector specifying where the series shall end}
+\item{to}{A \code{}.}
 
-\item{inputs}{x as character.}
+\item{inputs}{A \code{}.}
 
-\item{territory}{Specifies the desired territorial levels.}
+\item{territory}{A \code{}.}
 
-\item{variable}{An integer describing what variable characteristics are to be returned. 
-Defaults to all available.}
+\item{variable}{A \code{}.}
 
-\item{header}{Headers.}
+\item{header}{A \code{}.}
 
-\item{sections}{A vector or a list of vectors if there are two or more classification
-codes containing the desired tables from the classification.}
+\item{sections}{A \code{}.}
 }
 \description{
 Searches the Sidra databases for a series by its description or a given table descriptions.

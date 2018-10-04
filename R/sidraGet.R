@@ -12,21 +12,22 @@
 #' codes containing the desired tables from the classification.
 #' @keywords sidra
 #' @export
-#' @import RCurl rjson zoo
+#' @import rjson zoo
+#' @importFrom httr GET content
 #' @examples
-#' \dontrun{sidra=BETS.sidra.get(x = c(1612), from = 1990, to = 2015, territory = "brazil", variable =109)
-#' sidra=BETS.sidra.get(x = c(3653), from = c("200201"), 
+#' \dontrun{sidra = sidraGet(x = c(1612), from = 1990, to = 2015, territory = "brazil", variable =109)
+#' sidra = sidraGet(x = c(3653), from = c("200201"), 
 #' to = c("201703"), territory = "brazil", 
 #' variable = 3135, sections = c(129316,129330), cl = 544)
-#' sidra=BETS.sidra.get(x = c(3653), from = c("200201"), 
+#' sidra = sidraGet(x = c(3653), from = c("200201"), 
 #' to = c("201512"), territory = "brazil",  variable = 3135, 
 #' sections = "all", cl = 544)
-#' sidra=BETS.sidra.get(x = c(1618), from = c("201703"), to = c("201703"), 
+#' sidra = sidraGet(x = c(1618), from = c("201703"), to = c("201703"), 
 #' territory = "brazil",
 #' variable = 109, sections=list(c(39427), c(39437,39441)), cl = c(49, 48))
 #' trim - x = 1620; from = 199001; to = 201701;  territory = "brazil"; 
-#' sections=list(c(90687)); cl =c(11255); variable = 583
-#' sidra = BETS.sidra.get(x = 1620, from = 199001, to = 201701,  
+#' sections = list(c(90687)); cl =c(11255); variable = 583
+#' sidra = sidraGet(x = 1620, from = 199001, to = 201701,  
 #' territory = "brazil",
 #' sections=list(c(90687)), cl =c(11255), variable = 583)}
 
@@ -35,7 +36,7 @@
 # x = c(1612); from = 1990; to = 2015; territory = "n6/all"; variable =109; cl = NULL; sections = NULL
 
 
-BETS.sidra.get <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state", 
+sidraGet <- function(x, from, to, territory = c(n1 = "brazil", n2 = "region", n3 = "state", 
                                                       n6 = "city", n8 = "mesoregion", n9 = "microregion", 
                                                       n129 = "citizenship", n132 = "semiarid", 
                                                       n133 = "semiaridUF"), 
@@ -128,12 +129,14 @@ BETS.sidra.get <- function(x, from, to, territory = c(n1 = "brazil", n2 = "regio
     serie = mapply(paste0, "serie_", inputs, USE.NAMES = FALSE)
     
     for (i in len){
-        tabela=RCurl::getURL(paste0("http://api.sidra.ibge.gov.br/values/",
-                                    "t/", inputs[i], "/", territory, "/", "p/", 
-                                    from, "-", to,  
-                                    "/v/", variable[i], "/f/", "u", "/h/", header,
-                                    sections[[i]]),
-                             ssl.verifyhost=FALSE, ssl.verifypeer=FALSE)
+        tabela=httr::GET(paste0("http://api.sidra.ibge.gov.br/values/",
+                                "t/", inputs[i], "/", territory, "/", "p/", 
+                                from, "-", to,  
+                                "/v/", variable[i], "/f/", "u", "/h/", header,
+                                sections[[i]]))
+        
+        tabela = base::rawToChar(httr::content(tabela,'raw'))
+        
 
         if (strsplit(tabela, " ")[[1]][1] == "Par\uE2metro") {
             
@@ -248,6 +251,6 @@ BETS.sidra.get <- function(x, from, to, territory = c(n1 = "brazil", n2 = "regio
     ls_df = ls()[grepl('data.frame', sapply(ls(), function(x) class(get(x))))]
     for ( obj in ls_df ) { lista[obj]=list(get(obj)) }
     
-    return(invisible(lista))
+    return(lista)
     
 } 

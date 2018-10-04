@@ -5,14 +5,15 @@
 #' @param save A string specifying if data should be saved in csv or xlsx format. 
 #' Defaults to not saving.
 #' @keywords bacen
-#' @author Fernando Teixeira \email{fernando.teixeira@fgv.br}
-#' @import RCurl 
+#' @author Fernando Teixeira \email{fernando.teixeira@fgv.br} and Jonatha Azevedo 
+#' \email{jonatha.costa@fgv.br}
+#' @importFrom httr GET content
 
-get.series.bacen <- function(x, from = "", to = "", save = ""){
-  
+get.series.bacen<- function(x, from = "", to = "",save = ""){
+
   
   if (missing(x)){
-    stop("Need to specify at least one serie.")
+    stop("Need to specify at least one series.")
   }
   
   if (! is.numeric(x)){
@@ -30,60 +31,33 @@ get.series.bacen <- function(x, from = "", to = "", save = ""){
   inputs = as.character(x)
   len = seq_along(inputs)
   serie = mapply(paste0, "serie_", inputs, USE.NAMES = FALSE)
+
+ for(i in len){
+    texto=tryCatch({
+     k = paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
+                inputs[i], 
+                '/dados?formato=csv&dataInicial=', data_init, '&dataFinal=',
+                data_end)
+     dados = httr::GET(k)
+     aux = httr::content(dados,'raw')
+     aux2= base::rawToChar(aux)
+     
+     DF <- data.frame(do.call(cbind, strsplit(aux2, "\r\n", fixed=TRUE)))
+     names(DF) <- "mist"
+     DF$mist   <- as.character(DF$mist)
+     DF$mist   <- gsub(x = DF$mist,pattern = '"',replacement = "")
+     DF$data   <- gsub(x = DF$mist,pattern = ";.*",replacement = "")
+     DF$valor  <- gsub(x = DF$mist,pattern = ".*;",replacement = "")
+     DF$valor  <- gsub(x = DF$valor,pattern = ",",replacement = ".")
+     DF <- DF[-1,-1]
+ })}
+ assign(serie[i], DF)
+ rm(DF, texto)
   
-  
-  for (i in len){ 
-    
-    result = tryCatch({
-      
-      
-      RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
-                           inputs[i], 
-                           '/dados?formato=csv&dataInicial=', data_init, '&dataFinal=',
-                           data_end),
-                    ssl.verifyhost=FALSE, ssl.verifypeer=FALSE, .opts = list(timeout = 1, maxredirs = 2))
-    },
-    error = function(e) {
-      
-      return(RCurl::getURL(paste0('http://api.bcb.gov.br/dados/serie/bcdata.sgs.',
-                                  inputs[i], 
-                                  '/dados?formato=csv&dataInicial=', data_init,
-                                  '&dataFinal=',
-                                  data_end),
-                           ssl.verifyhost=FALSE, ssl.verifypeer=FALSE))
-      
-    })
-    
-    assign(serie[i], result) 
-  }
-  
-  for (i in len){
-    texto = utils::read.csv2(textConnection(eval(as.symbol(
-      serie[i]))), header=T)
-    texto$data = gsub(' .*$','', eval(texto$data))
-    assign(serie[i], texto)
-    
-  }
-  
-  if(ncol(texto) == 1){
-    for (i in len){
-      texto = utils::read.csv(textConnection(eval(as.symbol(
-        serie[i]))), header=T)
-      texto$data = gsub(' .*$','', eval(texto$data))
-      assign(serie[i], texto)
-    }
-  }
-  
-  rm(texto)
-  
-  if (save == "csv"){
-    for(i in len) {utils::write.csv(eval(as.symbol(serie[i])), file = paste0(serie[i], ".csv"))}
-    
-  }
-  
+
   lista = list()
   ls_df = ls()[grepl('data.frame', sapply(ls(), function(x) class(get(x))))]
-  for ( obj in ls_df ) { lista[obj]=list(get(obj)) }
+  for ( obj in ls_df ) { lista[obj]=list(get(obj))}
   
   return(invisible(lista))
   

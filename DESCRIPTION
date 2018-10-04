@@ -14,7 +14,6 @@ Depends:
 Imports:
     sqldf,
     zoo,
-    RODBC,
     stringr,
     RCurl,
     webshot,    
@@ -22,7 +21,9 @@ Imports:
     DBI,
     digest,
     rjson,
+    httr,
     rvest,
+    dplyr,
     xml2,
     lubridate,
     foreign,
