@@ -58,4 +58,3 @@ bcbExpectMTop5 <- function(indicator = 'IGP-DI',limit = 100, variables = c("tipo
     
     return(data)
 }
-
