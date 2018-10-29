@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539195866111.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1F2DE83A",
+    "lastKnownWriteTime" : 1539196801,
+    "last_content_update" : 1539196801695,
+    "path" : "~/github_original/BETSlite/R/BETSsearch.R",
+    "project_path" : "R/BETSsearch.R",
+    "properties" : {
+        "cursorPosition" : "256,17",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1539195624595.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1362034171",
+    "id" : "CE506090",
+    "lastKnownWriteTime" : 1537806757,
+    "last_content_update" : 1537806757,
+    "path" : "~/github_original/BETSlite/R/get.series.bacen.R",
+    "project_path" : "R/get.series.bacen.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

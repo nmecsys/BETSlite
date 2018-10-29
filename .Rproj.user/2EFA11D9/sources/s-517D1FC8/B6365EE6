@@ -1,21 +1,21 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1538663582796.000,
+    "created" : 1539195614032.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "99AB6F88",
+    "id" : "B6365EE6",
     "lastKnownWriteTime" : 1537806757,
     "last_content_update" : 1537806757,
-    "path" : "~/github_original/BETSlite/R/bcbExpectM.R",
-    "project_path" : "R/bcbExpectM.R",
+    "path" : "~/github_original/BETSlite/R/BETSget.R",
+    "project_path" : "R/BETSget.R",
     "properties" : {
-        "cursorPosition" : "13,17",
+        "cursorPosition" : "12,30",
         "scrollLine" : "0"
     },
-    "relative_order" : 1,
+    "relative_order" : 3,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

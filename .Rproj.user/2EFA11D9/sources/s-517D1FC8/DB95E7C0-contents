@@ -1,0 +1,90 @@
+---
+title: "Tutorial 1 - Data Management"
+subtitle: 'Instalação e configuração do MySQL no Windows'
+date: "`r format(Sys.Date(), '%B %Y')`"
+author: 'Jonatha Azevedo'
+output:
+ rmdformats::readthedown:
+    code_folding: hide
+    self_contained: true
+    thumbnails: false
+    lightbox: false
+---
+
+
+```{r knitr_init, echo=FALSE, cache=FALSE}
+library(knitr)
+library(rmdformats)
+library(DT)
+## Global options
+options(max.print = "75")
+opts_chunk$set(echo = FALSE,
+	           cache = FALSE,
+               prompt = FALSE,
+               tidy = FALSE,
+               comment = NA,
+               message = FALSE,
+               warning = FALSE)
+opts_knit$set(width = 75)
+```
+
+
+
+Possuindo ou não o MySQL Server instalado em seu computador, baixe o instalador do MySQL Community (que vem com todos os serviços, inclusive o MySQL Workbench), na página:
+
+
+[](https://dev.mysql.com/downloads/windows/installer/5.7.html)
+
+
+Recomendamos que você baixe o instalador *web*, o de menor tamanho entre as duas opções disponiveis, para que depois não tenha nenhum problema com DLLs bloqueadas. 
+
+Após abrir o instalador, você verá a seguinte tela:
+
+
+![](img3/tutorial1.png)
+
+
+Aceite os termos e clique em **Next**.
+
+Então, na seção **Choosing a Setup type**, selecione a opção **Developer Default** e clique em **Next**
+
+Na seção é aberta, **Path Conflicts**, escolha um **Data Directory** onde você gostaria de colocar os arquivos de dados que vai importar para os bancos. Não se incomode com o *warning* "The selected path already exists" e não esqueça de conferir se a arquitetura do MySQL Server está correta. Esta situação está ilustrada na figura a seguir.
+
+
+![](img3/tutorial3.png)
+
+
+Após clicar em Next, você pode ver a tela abaixo: 
+
+
+![](img3/tutorial3.png)
+
+Confirme e siga em frente.
+
+Na seção **Check Requiments**, confira se o Workbench não está na lista de produtos cujos requisitos não são atendidos pelo seu ambiente. Caso esteja, não se preocupe. Vá à página <https://dev.mysql.com/downloads/workbench/> e baixe os instaladores indicados na seção **MySQL Workbench Windows Prerequisites**. Depois de executá-los, reinicie o instalador do MySQL. É possível que, antes disso, você precise reiniciar sua máquina. O sistema se encarregará de avisar. 
+
+
+A seção seguinte é a de instalação, clique em **Execute** e, depois da instalação, em **Next**. Na seção **Windows Service**
+recomendamos que você desmarque a opção "Start the MySQL Server at System Startup". Isso significa que você deverá inciar o MySQL Server manualmente quando quiser usar. 
+
+Continue clicando em **Next** ou **Execute** até que o botão **Finish** apareça. Clique, então, neste botão, para que a instalação e configuração seja concluída.
+
+
+
+Finalmente, com o MySQL Server, o Workbench e os demais serviços já instalados, abra o Workbench. 
+
+
+No painel acima do script SQL em branco, selecione a opção **Don't Limit** para poder importar arquivos com mais de 50000 linhas, como mostramos a seguir:
+
+
+![](img3/tutorial4.png)
+
+
+
+Neste mesmo painel, clique no botão para suprirmir warnings. Na figura abaixo, em que aparece em detalhe, ele já foi pressionado. 
+
+![](img3/tutorial5.png)
+
+
+
+
