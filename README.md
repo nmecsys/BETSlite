@@ -5,6 +5,10 @@
 
 # BETSlite - Brazilian Economic Times Series 
 
+![Screenshot](https://gist.githubusercontent.com/GreedBlink/e47bce2c1f31ca138885eab5a704a98f/raw/1233c6a4a4fda08220bfe5d0954d07ca53b76fa9/BETSlite.png)
+
+
+
 *(Only the Data Management)*
 
 # Installation
